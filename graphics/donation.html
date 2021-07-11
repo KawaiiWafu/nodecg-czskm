@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/base-min.css">
+  <link rel="stylesheet" href="css/grids-min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/jquery.textfill.min.js"></script>
+  <script src="js/anime.min.js"></script>
+  <script src="js/nodecg/donation.js"></script>
+  <title></title>
+</head>
+
+<body>
+  <div class="container">
+    <div id="donation" class="pure-g info-box runner-color">
+      <div class="pure-u-24-24 donation-donor">
+        <span id="donor" class="donation-text">Hello</span>
+      </div>
+      <div class="pure-u-24-24 donation-amount">
+        <span id="amount" class="donation-text">4,300,000 Kč</span>
+      </div>
+    </div>
+  <script>
+  function showDonation(width) {
+    anime({
+      targets: '#donation',
+      backgroundColor: [
+        { value: '#6D0015', easing: 'easeOutQuad', duration: 0 },
+        { value: '#BE0026', easing: 'easeOutQuad', duration: 2000 }
+      ],
+      width: [
+        { value: 0, easing: 'easeOutQuad', duration: 0 },
+        { value: width, easing: 'easeOutQuad', duration: 500 },
+        { value: 0, easing: 'easeInQuart', duration: 500, delay: 6500 }
+      ]
+    });
+    anime({
+      targets: '#donor, #amount',
+      opacity: [
+        { value: 0, duration: 0 },
+        { value: 1, duration: 1000, delay: 250 },
+        { value: 0, duration: 100, delay: 6000 }
+      ],
+      easing: 'linear',
+    });
+  };
+  </script>
+</body>
+
+</html>

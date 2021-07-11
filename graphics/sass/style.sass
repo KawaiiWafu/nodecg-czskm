@@ -1,0 +1,244 @@
+// Import font
+    
+@font-face
+    font-family: 'Big John'
+    src: url('BIG_JOHN.otf')
+    
+html
+    overflow: hidden
+
+// Toggle production (transparent) / debug colors
+
+// body
+//     background-color: #00ff00
+
+// .game
+//     background-color: #ff00ff
+
+// Aspect ratio calculation
+    
+@mixin aspect-ratio($width, $height)
+    position: relative
+    &:before
+        display: block
+        content: ""
+        width: 100%
+        padding-top: ($height / $width) * 100%
+    > .content
+        position: absolute
+        top: 1
+        left: 0
+        right: 0
+        bottom: 0
+
+.game-16-9
+    @include aspect-ratio(16, 9)
+
+.game-16-10
+    @include aspect-ratio(16, 10)
+
+.game-4-3
+    @include aspect-ratio(4, 3)
+
+.game-8-7
+    @include aspect-ratio(8, 7)
+
+.container
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+
+.fill
+    flex: 1 1 auto
+    background-color: lightgrey
+
+// Info fields setup
+
+h1
+    font-family: 'Big John', sans-serif !important
+    font-size: 3.5em
+    font-weight: 500
+    color: white
+
+.info-box
+    font-family: 'Big John', sans-serif !important
+    text-align: center
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 1.5em
+    position: relative
+
+.game-info-4-3
+    height: 140px
+
+.other-info-4-3
+    height: 70px
+    > img
+        height: 70px
+
+.time-info-4-3
+    height: 70px
+    font-size: 2em
+
+.other-info-16-9
+    height: 68px
+    > img
+        height: 68px
+
+.time-info-16-9
+    height: 68px
+    font-size: 2em
+
+.game-info-4-3-4race
+    height: 180px
+    font-size: 1.2em
+
+.game-info-4-3-5race
+    height: 120px
+    font-size: 1.2em
+
+.other-info-4-3-6race
+    height: 60px
+    > img
+        height: 60px
+
+.time-info-4-3-6race
+    height: 60px
+    font-size: 2em
+
+.game-info-4-3-6race
+    font-size: 1.2em
+
+.intermission-info
+    height: 60px
+    font-size: 1.7em
+
+.countdown
+    height: 70px
+    margin-top: 2em
+    font-size: 3em
+
+.commentator-bg
+    background-image: url("../img/microphone.svg")
+    background-repeat: no-repeat
+    background-size: contain
+
+// Colors
+
+.runner-color
+    background-color: #ffffff
+
+.runner-color-transparent
+    background-color: rgba(255, 255, 255, 0.3)
+
+.commentator-color
+    background-color: #939393
+
+.game-color
+    background-color: #be0026
+
+.category-color
+    background-color: #6d0015
+
+.estimate-color
+    background-color: #32609c
+    font-weight: 600
+
+.timer-color
+    background-color: #1c3659
+    font-weight: 600
+
+// Helpers
+
+.ml-a
+    margin: 0 auto
+
+.f-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+.info-p
+    padding: 8px 18px 8px 18px
+
+.shift-4-3
+    margin-top: 20%
+
+.shift-4-3-3race
+    margin-top: 32px
+
+.shiftl-4-3-4race
+    margin-left: 20px
+
+.shiftt-4-3-4race
+    margin-top: 20px
+
+.shiftb-4-3-4race
+    margin-top: 400px
+
+.shift-16-9-3race
+    margin-top: 64px
+
+// Runner name / twitch name transition
+
+.runner-icon-left
+    position: absolute
+    left: 0
+    opacity: 1
+
+.runner-icon-right
+    position: absolute
+    right: 0
+    transform: scaleX(-1)
+    opacity: 1
+
+.twitch-icon-left
+    position: absolute
+    left: 0
+    opacity: 0
+
+.twitch-icon-right
+    position: absolute
+    right: 0
+    opacity: 0
+
+.runner-name
+    position: absolute
+
+.twitch-name
+    position: absolute
+    opacity: 0
+
+// Intermission transition
+
+#donations
+    position: absolute
+    opacity: 1
+
+#nextruns
+    position: relative
+    opacity: 0
+
+// Donations
+
+#donation
+    background-color: #6D0015
+    height: 70px
+    width: 0px
+
+.donation-text
+    opacity: 0
+    font-family: 'Big John'
+
+.donation-donor
+    text-align: left
+    padding-left: 0.5em
+    padding-top: 0.22em
+    font-size: 20px
+
+.donation-amount
+    text-align: right
+    padding-right: 0.5em
+    margin-top: 0.1em
+    font-size: 24px

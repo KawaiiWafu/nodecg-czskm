@@ -1,0 +1,68 @@
+{
+    "4-3.html": {
+        "width": 400,
+        "height": 70,
+        "posX": 40,
+        "posY": 650
+    },
+    "4-3-2race.html": {
+        "width": 400,
+        "height": 70,
+        "posX": 760,
+        "posY": 1000
+    },
+    "4-3-3race.html": {
+        "width": 400,
+        "height": 70,
+        "posX": 40,
+        "posY": 994
+    },
+    "4-3-4race.html": {
+        "width": 400,
+        "height": 70,
+        "posX": 760,
+        "posY": 570
+    },
+    "4-3-5race.html": {
+        "width": 400,
+        "height": 70,
+        "posX": 760,
+        "posY": 880
+    },
+    "4-3-6race.html": {
+        "width": 400,
+        "height": 70,
+        "posX": 760,
+        "posY": 505
+    },
+    "16-9.html": {
+        "width": 400,
+        "height": 70,
+        "posX": 120,
+        "posY": 438
+    },
+    "16-9-2race.html": {
+        "width": 400,
+        "height": 70,
+        "posX": 760,
+        "posY": 911
+    },
+    "16-9-3race.html": {
+        "width": 400,
+        "height": 70,
+        "posX": 40,
+        "posY": 980
+    },
+    "16-9-4race.html": {
+        "width": 320,
+        "height": 70,
+        "posX": 800,
+        "posY": 200
+    },
+    "intermission.html": {
+        "width": 400,
+        "height": 70,
+        "posX": 371,
+        "posY": 650
+    }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/nodecg/layout-switcher.js"></script>
+</head>
+
+<body>
+  <iframe
+    id="transition"
+    src=""
+    style="
+      position: fixed;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      width: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      z-index: 3;
+      height: 100%;
+    ">
+  </iframe>
+  <iframe
+    id="donation"
+    src="/bundles/nodecg-czskm/graphics/donation.html"
+    style="
+      position: fixed;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      width: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      z-index: 2;
+      height: 100%;
+    ">
+  </iframe>
+  <iframe
+    id="layout"
+    src="/bundles/nodecg-czskm/graphics/4-3.html"
+    style="
+      position: fixed;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      width: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      z-index: 1;
+      height: 100%;
+    ">
+  </iframe>
+</body>
+
+</html>

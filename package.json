@@ -1,0 +1,129 @@
+{
+  "name": "nodecg-czskm",
+  "version": "0.0.0",
+  "description": "Czechoslovak Marathon graphics",
+  "homepage": "",
+  "author": {
+    "name": "KawaiiWafu",
+    "email": "remiliass@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "bundleDependencies": {
+      "nodecg-streamlabs": "^1.0.0",
+      "nodecg-speedcontrol": "^2.3.0"
+    },
+    "dashboardPanels": [
+      {
+        "name": "czechoslovak-marathon-layout",
+        "title": "CZSK Marathon - Layout Switcher",
+        "width": 3,
+        "file": "czechoslovak-marathon-layout.html",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "czechoslovak-marathon-rtmp",
+        "title": "CZSK Marathon - RTMP Switcher",
+        "width": 3,
+        "file": "czechoslovak-marathon-rtmp.html",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "czechoslovak-marathon-donations",
+        "title": "CZSK Marathon - Donation tracker",
+        "width": 3,
+        "file": "czechoslovak-marathon-donations.html",
+        "headerColor": "#525F78"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "4-3-2race.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "4-3-3race.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "4-3-4race.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "4-3-5race.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "4-3-6race.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "4-3.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "16-9-2race.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "16-9-3race.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "16-9-4race.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "16-9.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "background.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "intermission.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "live.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "transition.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "donation.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "private": true
+}

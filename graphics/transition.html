@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/base-min.css">
+  <link rel="stylesheet" href="css/grids-min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/anime.min.js"></script>
+  <title></title>
+</head>
+
+<body class="to-hide" style="background-color: transparent;">
+  <div class="flag-white" style="min-height: 540px; width: 0%; background-color: white; position: absolute; top: 0; left: 0; z-index: 0;"></div>
+  <div class="flag-red" style="min-height: 540px; width: 0%; background-color: #BE0026; position: absolute; bottom: 0; right: 0; z-index: 0;"></div>
+  <svg class="flag-blue" height="2" width="2" style="position: absolute; top: 50%; z-index: 1; opacity: 0">
+    <circle class="blue-circle" cx="1" cy="1" r="1" fill="#32609C" />
+  </svg>
+  <div>
+    <img src="img/logo.svg" class="transition-logo" style="width: 600px; position: absolute; top: 50%; left: 50%; opacity: 0; transform: translate(-50%, -50%); z-index: 2;"></div>
+  </div>
+  <script>
+  anime({
+    targets: '.flag-white',
+    width: '100%',
+    easing: 'easeInOutExpo',
+    duration: 800
+  });
+  anime({
+    targets: '.flag-red',
+    width: '100%',
+    easing: 'easeInOutExpo',
+    duration: 1600,
+    delay: 600
+  });
+  anime({
+    targets: '.flag-blue',
+    scale: 2000,
+    opacity: [
+      { value: 1, duration: 1, delay: 1800 },
+    ],
+    easing: 'easeInOutQuad',
+    duration: 2400,
+    delay: 1800
+  });
+  anime({
+    targets: '.blue-circle',
+    fill: '#1C3659',
+    duration: 1000,
+    easing: 'linear',
+    delay: 3100
+  })
+  anime({
+    targets: '.transition-logo',
+    opacity: 1,
+    easing: 'easeInOutQuad',
+    duration: 1500,
+    delay: 3000
+  });
+  anime({
+    targets: '.to-hide',
+    opacity: 0,
+    easing: 'easeInOutSine',
+    duration: 2000,
+    delay: 6000
+  });
+  </script>
+</body>
+
+</html>

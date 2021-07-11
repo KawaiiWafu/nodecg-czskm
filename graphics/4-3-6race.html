@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/base-min.css">
+  <link rel="stylesheet" href="css/grids-min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    var scaleGame = 20;
+    var scaleInfo = 28;
+    var scaleCat = 24;
+  </script>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/jquery.textfill.min.js"></script>
+  <script src="js/textfill.js"></script>
+  <script src="js/anime.min.js"></script>
+  <script src="js/nodecg/game-layout.js"></script>
+  <script src="js/nodecg/timer.js"></script>
+  <title></title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="pure-g">
+      <div class="pure-u-24-24 ml-a">
+        <div class="pure-g">
+          <div class="pure-u-8-24 game game-4-3">
+            <div class="content">
+              <div class="pure-g">
+                <div class="pure-u-3-24"></div>
+                <div class="pure-u-18-24 info-box other-info-4-3-6race runner-color-transparent auto-size">
+                  <img class="runner-icon-left" src="img/runner.svg" />
+                  <img class="twitch-icon-left" src="img/glitch.svg" />
+                  <span id="player1" class="info-p runner-name"></span>
+                  <span id="twitch1" class="info-p twitch-name"></span>
+                </div>
+                <div class="pure-u-3-24"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pure-u-8-24 game game-4-3">
+            <div class="content">
+              <div class="pure-g">
+                <div class="pure-u-3-24"></div>
+                <div class="pure-u-18-24 info-box other-info-4-3-6race runner-color-transparent auto-size">
+                  <img class="runner-icon-left" src="img/runner.svg" />
+                  <img class="twitch-icon-left" src="img/glitch.svg" />
+                  <span id="player2" class="info-p runner-name"></span>
+                  <span id="twitch2" class="info-p twitch-name"></span>
+                </div>
+                <div class="pure-u-3-24"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pure-u-8-24 game game-4-3">
+            <div class="content">
+              <div class="pure-g">
+                <div class="pure-u-3-24"></div>
+                <div class="pure-u-18-24 info-box other-info-4-3-6race runner-color-transparent auto-size">
+                  <img class="runner-icon-left" src="img/runner.svg" />
+                  <img class="twitch-icon-left" src="img/glitch.svg" />
+                  <span id="player3" class="info-p runner-name"></span>
+                  <span id="twitch3" class="info-p twitch-name"></span>
+                </div>
+                <div class="pure-u-3-24"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-8-24 info-box other-info-4-3-6race game-info-4-3-6race game-color auto-size-game">
+        <span id="game-title" class="info-p"></span>
+      </div>
+      <div class="pure-u-8-24"></div>
+      <div class="pure-u-8-24 info-box time-info-4-3-6race estimate-color">
+        <span id="game-estimate" class="info-p"></span>
+      </div>
+      <div class="pure-u-8-24 info-box other-info-4-3-6race category-color auto-size-category">
+        <span id="game-category" class="info-p"></span>
+      </div>
+      <div class="pure-u-8-24"></div>
+      <div class="pure-u-8-24 info-box time-info-4-3-6race timer-color">
+        <span id="timer" class="info-p"></span>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-24-24 ml-a">
+        <div class="pure-g">
+          <div class="pure-u-8-24 game game-4-3">
+            <div class="content">
+              <div class="pure-g">
+                <div class="pure-u-3-24"></div>
+                <div class="pure-u-18-24 info-box other-info-4-3-6race runner-color-transparent auto-size">
+                  <img class="runner-icon-left" src="img/runner.svg" />
+                  <img class="twitch-icon-left" src="img/glitch.svg" />
+                  <span id="player4" class="info-p runner-name"></span>
+                  <span id="twitch4" class="info-p twitch-name"></span>
+                </div>
+                <div class="pure-u-3-24"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pure-u-8-24 game game-4-3">
+            <div class="content">
+              <div class="pure-g">
+                <div class="pure-u-3-24"></div>
+                <div class="pure-u-18-24 info-box other-info-4-3-6race runner-color-transparent auto-size">
+                  <img class="runner-icon-left" src="img/runner.svg" />
+                  <img class="twitch-icon-left" src="img/glitch.svg" />
+                  <span id="player5" class="info-p runner-name"></span>
+                  <span id="twitch5" class="info-p twitch-name"></span>
+                </div>
+                <div class="pure-u-3-24"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pure-u-8-24 game game-4-3">
+            <div class="content">
+              <div class="pure-g">
+                <div class="pure-u-3-24"></div>
+                <div class="pure-u-18-24 info-box other-info-4-3-6race runner-color-transparent auto-size">
+                  <img class="runner-icon-left" src="img/runner.svg" />
+                  <img class="twitch-icon-left" src="img/glitch.svg" />
+                  <span id="player6" class="info-p runner-name"></span>
+                  <span id="twitch6" class="info-p twitch-name"></span>
+                </div>
+                <div class="pure-u-3-24"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/twitchname.js"></script>
+  <script>
+  $(() => {
+    textfill_auto(scaleInfo, scaleGame, scaleCat);
+  });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+{
+    "layouts": [
+        {
+            "name": "4/3",
+            "file": "4-3.html"
+        },
+        {
+            "name": "4/3 2 race",
+            "file": "4-3-2race.html"
+        },
+        {
+            "name": "4/3 3 race",
+            "file": "4-3-3race.html"
+        },
+        {
+            "name": "4/3 4 race",
+            "file": "4-3-4race.html"
+        },
+        {
+            "name": "4/3 5 race",
+            "file": "4-3-5race.html"
+        },
+        {
+            "name": "4/3 6 race",
+            "file": "4-3-6race.html"
+        },
+        {
+            "name": "16/9",
+            "file": "16-9.html"
+        },
+        {
+            "name": "16/9 2 race",
+            "file": "16-9-2race.html"
+        },
+        {
+            "name": "16/9 3 race",
+            "file": "16-9-3race.html"
+        },
+        {
+            "name": "16/9 4 race",
+            "file": "16-9-4race.html"
+        },
+        {
+            "name": "Interm",
+            "file": "intermission.html"
+        }
+    ]
+}
