@@ -9,7 +9,7 @@ module.exports = nodecg => {
     const subscriptionTracker = nodecg.Replicant('subscriptionTracker', {defaultValue: [], persistent: false});
     const donationLock = nodecg.Replicant('donationLock', {defaultValue: 0, persistent: false});
     const streamlabs = nodecg.extensions['nodecg-streamlabs'];
-    const accessKey = ''; //Access key for non-Streamlabs donations
+    const accessKey = nodecg.bundleConfig.accessKey;
 
     switchLayoutRep.on('change', newVal => {
         fs.writeFile('./bundles/nodecg-czskm/dashboard/currentlayout.json', newVal.split('.html')[0], function (err) {
