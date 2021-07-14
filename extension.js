@@ -7,6 +7,7 @@ module.exports = nodecg => {
     const donationTotal = nodecg.Replicant('donationTotal', {defaultValue: 0.0});
     const subscriptionTracker = nodecg.Replicant('subscriptionTracker', {defaultValue: [], persistent: false});
     const donationLock = nodecg.Replicant('donationLock', {defaultValue: 0, persistent: false});
+    const darujmeTracker = nodecg.Replicant('darujmeTracker', 'nodecg-czskm-darujme');
     const streamlabs = nodecg.extensions['nodecg-streamlabs'];
 
     switchLayoutRep.on('change', newVal => {
@@ -46,5 +47,15 @@ module.exports = nodecg => {
                 months: event.message.months
             });
         }
+    });
+    
+    // Only for Darujme.cz donations
+    darujmeTracker.on('change', newVal => {
+        donationTracker.value.push({
+            name: newVal.name,
+            amount: newVal.amount,
+            message: newVal.message
+        });
+        donationTotal.value += newVal.amount;
     });
 }
