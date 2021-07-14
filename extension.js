@@ -9,6 +9,7 @@ module.exports = nodecg => {
     const subscriptionTracker = nodecg.Replicant('subscriptionTracker', {defaultValue: [], persistent: false});
     const donationLock = nodecg.Replicant('donationLock', {defaultValue: 0, persistent: false});
     const streamlabs = nodecg.extensions['nodecg-streamlabs'];
+    const accessKey = ''; //Access key for non-Streamlabs donations
 
     switchLayoutRep.on('change', newVal => {
         fs.writeFile('./bundles/nodecg-czskm/dashboard/currentlayout.json', newVal.split('.html')[0], function (err) {
@@ -51,17 +52,21 @@ module.exports = nodecg => {
     
     // Only for Darujme.cz donations
     router.get('/darujme', (req, res) => {
-        let name = req.query.author;
-        let amount = req.query.amount;
-        let message = req.query.message;
-        donationTracker.value.push({
-            name: name,
-            amount: amount,
-            message: message
-        });
-        if (amount !== 'Anonymous')
-            donationTotal.value += parseFloat(amount);
-        res.send(name + amount + message);
+        if (req.query.key === accessKey) {
+            let name = req.query.author;
+            let amount = req.query.amount;
+            let message = req.query.message;
+            donationTracker.value.push({
+                name: name,
+                amount: amount,
+                message: message
+            });
+            if (amount !== 'Anonymous')
+                donationTotal.value += parseFloat(amount);
+            res.send(name + amount + message);
+        } else {
+            res.send('Error: Invalid key');
+        }
     });
     
     nodecg.mount('/nodecg-czskm', router);
