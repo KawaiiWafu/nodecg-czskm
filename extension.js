@@ -63,4 +63,6 @@ module.exports = nodecg => {
             donationTotal.value += parseFloat(amount);
         res.send(name + amount + message);
     });
+    
+    nodecg.mount('/nodecg-czskm', router);
 }
