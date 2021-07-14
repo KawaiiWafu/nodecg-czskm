@@ -1,13 +1,13 @@
 const fs = require('fs');
 
 module.exports = nodecg => {
+    const router = nodecg.Router();
     const switchLayoutRep = nodecg.Replicant('switchLayout', {defaultValue: 'intermission.html'});
     const rtmpChanger = nodecg.Replicant('rtmpChanger', {defaultValue: ''});
     const donationTracker = nodecg.Replicant('donationTracker', {defaultValue: [], persistent: false});
     const donationTotal = nodecg.Replicant('donationTotal', {defaultValue: 0.0});
     const subscriptionTracker = nodecg.Replicant('subscriptionTracker', {defaultValue: [], persistent: false});
     const donationLock = nodecg.Replicant('donationLock', {defaultValue: 0, persistent: false});
-    const darujmeTracker = nodecg.Replicant('darujmeTracker', 'nodecg-czskm-darujme');
     const streamlabs = nodecg.extensions['nodecg-streamlabs'];
 
     switchLayoutRep.on('change', newVal => {
@@ -50,12 +50,17 @@ module.exports = nodecg => {
     });
     
     // Only for Darujme.cz donations
-    darujmeTracker.on('change', newVal => {
+    router.get('/darujme', (req, res) => {
+        let name = req.query.author;
+        let amount = req.query.amount;
+        let message = req.query.message;
         donationTracker.value.push({
-            name: newVal.name,
-            amount: newVal.amount,
-            message: newVal.message
+            name: name,
+            amount: amount,
+            message: message
         });
-        donationTotal.value += newVal.amount;
+        if (amount !== 'Anonymous')
+            donationTotal.value += parseFloat(amount);
+        res.send(name + amount + message);
     });
 }
