@@ -58,7 +58,7 @@ function refreshNextRunsData(currentRun) {
 }
 
 function startSetupTimer(setupTime) {
-	var cdt = new Date().getTime() + setupTime;
+	var cdt = new Date().getTime() + setupTime * 1000;
     $('#clock').countdown(cdt)
     .on('update.countdown', function(event) {
       var $this = $(this);
