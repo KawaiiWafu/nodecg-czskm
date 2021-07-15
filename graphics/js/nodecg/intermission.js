@@ -43,6 +43,7 @@ function loadFromSpeedControl() {
 }
 
 function refreshNextRunsData(currentRun) {
+	startSetupTimer(currentRun.setupTimeS);
 	let nextRuns = getNextRuns(currentRun, 2);
 	let i = 0;
     let futureRuns = [];
@@ -54,4 +55,13 @@ function refreshNextRunsData(currentRun) {
 		i += 1;
 	}
     $('#next-runs').html(futureRuns.join(' ┃ '));
+}
+
+function startSetupTimer(setupTime) {
+	var cdt = new Date().getTime() + setupTime;
+    $('#clock').countdown(cdt)
+    .on('update.countdown', function(event) {
+      var $this = $(this);
+      $this.html(event.strftime('%M:%S'));
+    });
 }

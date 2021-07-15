@@ -75,14 +75,6 @@
     </div>
   </div>
   <script>
-    var cdt = new Date().getTime() + 600000;
-    $('#clock').countdown(cdt)
-    .on('update.countdown', function(event) {
-      var $this = $(this);
-      $this.html(event.strftime('%M:%S'));
-    });
-  </script>
-  <script>
   anime({
     targets: '#donations',
     opacity: [
