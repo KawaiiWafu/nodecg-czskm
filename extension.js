@@ -2,8 +2,8 @@ const fs = require('fs');
 
 module.exports = nodecg => {
     const router = nodecg.Router();
-    const switchLayoutRep = nodecg.Replicant('switchLayout', {defaultValue: null, persistent: false});
-    const rtmpChanger = nodecg.Replicant('rtmpChanger', {defaultValue: null, persistent: false});
+    const switchLayoutRep = nodecg.Replicant('switchLayout', {defaultValue: 'intermission.html', persistent: false});
+    const rtmpChanger = nodecg.Replicant('rtmpChanger', {defaultValue: '', persistent: false});
     const donationTracker = nodecg.Replicant('donationTracker', {defaultValue: [], persistent: false});
     const donationTotal = nodecg.Replicant('donationTotal', {defaultValue: 0.0});
     const subscriptionTracker = nodecg.Replicant('subscriptionTracker', {defaultValue: [], persistent: false});
@@ -60,8 +60,6 @@ module.exports = nodecg => {
     router.get('/ws', (req, res) => {
         if (req.query.key === accessKey) {
             res.json({layout: switchLayoutRep.value, rtmp: rtmpChanger.value});
-            switchLayoutRep.value = null;
-            rtmpChanger.value = null;
         } else {
             res.send('Error: Invalid key');
         }
