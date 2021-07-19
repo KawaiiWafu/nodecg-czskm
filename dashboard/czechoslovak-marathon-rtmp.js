@@ -1,6 +1,7 @@
 let select, input, button;
 
 const rtmpChanger = nodecg.Replicant('rtmpChanger');
+const rtmpIp = nodecg.bundleConfig.rtmp;
 
 function setup() {
     input = createInput().attribute('placeholder', 'abcdefghijkl/czskm1');
@@ -25,5 +26,5 @@ function setup() {
 }
 
 function changeRtmp(input, streamKey) {
-    rtmpChanger.value = input + '|rtmp://31.31.76.93/' + streamKey;
+    rtmpChanger.value = input + '|rtmp://' + rtmpIp + '/' + streamKey;
 }
