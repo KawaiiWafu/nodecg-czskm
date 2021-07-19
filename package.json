@@ -137,6 +137,13 @@
         "width": 1920,
         "height": 1080
       }
+    ],
+    "assetCategories": [
+      {
+        "name": "backgrounds",
+        "title": "Backgrounds",
+        "allowedTypes": ["jpg", "jpeg", "png"]
+      }
     ]
   },
   "repository": "https://github.com/nodecg/nodecg.git",
