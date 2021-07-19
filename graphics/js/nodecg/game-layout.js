@@ -24,6 +24,8 @@ $(() => {
 	// Sets information on the pages for the run.
 	function updateSceneFields(runData) {
         let currentTeamsData = runData.teams;
+		let runners = '';
+		let first = true;
 		gameTitle.html(runData.game);
 		gameCategory.html(runData.category);
 		gameSystem.html(runData.system);
@@ -33,19 +35,25 @@ $(() => {
 			let i = 0;
             for (let team of currentTeamsData) {
 				if (intermission.length) {
-					player.html(team.players.map((player) => player.name).join(', '));
-					break;
+					if (first) {
+						runners += team.players.map((player) => player.name).join(', ');
+						first = false;
+					} else {
+						runners += ', ' + team.players.map((player) => player.name).join(', ');
+					}
+				} else {
+					for (let player of team.players) {
+						if (player.name.startsWith("[C] ")) {
+							commentator.html(player.name.substring(4));
+						} else {
+							$('#player' + (i + 1)).html(player.name);
+							$('#twitch' + (i + 1)).html(player.social.twitch);
+						}
+						i += 1;
+					}
 				}
-                for (let player of team.players) {
-                    if (player.name.startsWith("[C] ")) {
-                        commentator.html(player.name.substring(4));
-                    } else {
-                        $('#player' + (i + 1)).html(player.name);
-                        $('#twitch' + (i + 1)).html(player.social.twitch);
-                    }
-                    i += 1;
-                }
             }
+			player.html(runners);
 		}
         textfill_auto(scaleInfo, scaleGame, scaleCat);
 	}
