@@ -43,6 +43,18 @@
         {
             "name": "Interm",
             "file": "intermission.html"
+        },
+        {
+            "name": "Start",
+            "file": "start.html"
+        },
+        {
+            "name": "Continue",
+            "file": "continue.html"
+        },
+        {
+            "name": "End",
+            "file": "end.html"
         }
     ]
 }
