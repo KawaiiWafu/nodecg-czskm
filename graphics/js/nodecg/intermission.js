@@ -1,12 +1,14 @@
 let runDataActiveRun = nodecg.Replicant('runDataActiveRun', 'nodecg-speedcontrol');
 let runDataArray = nodecg.Replicant('runDataArray', 'nodecg-speedcontrol');
 let donationList = nodecg.Replicant('donationList');
+const backgrounds = nodecg.Replicant('assets:backgrounds');
 
-NodeCG.waitForReplicants(runDataActiveRun, runDataArray, donationList).then(loadFromSpeedControl);
+NodeCG.waitForReplicants(runDataActiveRun, runDataArray, donationList, backgrounds).then(loadFromSpeedControl);
 
 function getNextRuns(runData, amount) {
 	let nextRuns = [];
 	let indexOfCurrentRun = findIndexInRunDataArray(runData);
+	setBackground(indexOfCurrentRun);
 	for (let i = 1; i <= amount; i++) {
 		if (!runDataArray.value[indexOfCurrentRun + i]) {
 			break;
@@ -64,4 +66,15 @@ function startSetupTimer(setupTime) {
       var $this = $(this);
       $this.html(event.strftime('%M:%S'));
     });
+}
+
+function setBackground(index) {
+	$('#game-background').css('background-image', 'url(' + backgrounds.value[index].url + ')');
+	if (backgrounds.value[index].name.includes('dark')) {
+		$('#logo-img').attr('src', 'img/logo.svg');
+		$('h1').css('color', '#000000');
+	} else {
+		$('#logo-img').attr('src', 'img/logo-dark.svg');
+		$('h1').css('color', '#ffffff');
+	}
 }
