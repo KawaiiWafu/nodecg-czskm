@@ -2,26 +2,14 @@ const fs = require('fs');
 
 module.exports = nodecg => {
     const router = nodecg.Router();
-    const switchLayoutRep = nodecg.Replicant('switchLayout', {defaultValue: 'intermission.html'});
-    const rtmpChanger = nodecg.Replicant('rtmpChanger', {defaultValue: ''});
+    const switchLayoutRep = nodecg.Replicant('switchLayout', {defaultValue: null, persistent: false});
+    const rtmpChanger = nodecg.Replicant('rtmpChanger', {defaultValue: null, persistent: false});
     const donationTracker = nodecg.Replicant('donationTracker', {defaultValue: [], persistent: false});
     const donationTotal = nodecg.Replicant('donationTotal', {defaultValue: 0.0});
     const subscriptionTracker = nodecg.Replicant('subscriptionTracker', {defaultValue: [], persistent: false});
     const donationLock = nodecg.Replicant('donationLock', {defaultValue: 0, persistent: false});
     const streamlabs = nodecg.extensions['nodecg-streamlabs'];
     const accessKey = nodecg.bundleConfig.accessKey;
-
-    switchLayoutRep.on('change', newVal => {
-        fs.writeFile('./bundles/nodecg-czskm/dashboard/currentlayout.json', newVal.split('.html')[0], function (err) {
-            if (err) return console.log(err);
-        });
-    });
-
-    rtmpChanger.on('change', newVal => {
-        fs.writeFile('./bundles/nodecg-czskm/dashboard/rtmpchange.json', newVal, function (err) {
-            if (err) return console.log(err);
-        });
-    });
 
     streamlabs.on("streamlabs-event", event => {
         if (event.type == 'donation') {
@@ -64,6 +52,16 @@ module.exports = nodecg => {
             if (amount !== 'Anonymous')
                 donationTotal.value += parseFloat(amount);
             res.send(name + amount + message);
+        } else {
+            res.send('Error: Invalid key');
+        }
+    });
+
+    router.get('/ws', (req, res) => {
+        if (req.query.key === accessKey) {
+            res.json({layout: switchLayoutRep.value, rtmp: rtmpChanger.value});
+            switchLayoutRep.value = null;
+            rtmpChanger.value = null;
         } else {
             res.send('Error: Invalid key');
         }

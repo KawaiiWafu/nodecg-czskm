@@ -1,4 +1,4 @@
-const switchLayoutRep = nodecg.Replicant('switchLayout', {defaultValue: 'intermission.html'});
+const switchLayoutRep = nodecg.Replicant('switchLayout');
 
 function setup() {
     $.getJSON("layouts.json", function(json) {
