@@ -69,8 +69,9 @@ function startSetupTimer(setupTime) {
 }
 
 function setBackground(index) {
-	$('#game-background').css('background-image', 'url(' + backgrounds.value[index].url + ')');
-	if (backgrounds.value[index].name.includes('dark')) {
+	let background = backgrounds.value.find(el => el.name === index.toString() || el.name === index.toString() + '-dark');
+	$('#game-background').css('background-image', 'url(' + background.url + ')');
+	if (background.name.includes('dark')) {
 		$('#logo-img').attr('src', 'img/logo.svg');
 		$('h1').css('color', '#000000');
 	} else {
