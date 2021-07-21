@@ -46,12 +46,16 @@ function loadFromSpeedControl() {
 
 function refreshNextRunsData(currentRun) {
 	startSetupTimer(currentRun.setupTimeS);
-	let nextRuns = getNextRuns(currentRun, 2);
+	let nextRuns = getNextRuns(currentRun, 3);
 	let i = 0;
     let futureRuns = [];
 	for (let run of nextRuns) {
 		if (i >= 2) {
 			break;
+		}
+		if (run.game === 'Setup') {
+			i -= 1;
+			continue;
 		}
         futureRuns.push(run.game + " (" + run.category + ")");
 		i += 1;
