@@ -47,7 +47,6 @@ $(() => {
 						if (player.name.startsWith("[C] ")) {
 							commentator.html(player.name.substring(4));
 						} else {
-							console.log(player.name);
 							$('#player' + (i + 1)).html(player.name);
 							$('#twitch' + (i + 1)).html(player.social.twitch);
 						}
