@@ -69,13 +69,20 @@ function startSetupTimer(setupTime) {
 }
 
 function setBackground(index) {
-	let background = backgrounds.value.find(el => el.name === index.toString() || el.name === index.toString() + '-dark');
-	$('#game-background').css('background-image', 'url(' + background.url + ')');
-	if (background.name.includes('dark')) {
-		$('#logo-img').attr('src', 'img/logo.svg');
-		$('h1').css('color', '#000000');
-	} else {
+	let background = backgrounds.value.find(el => el.name === (index + 1).toString() || el.name === (index + 1).toString() + '-dark');
+	if (background === undefined) {
+		$('#game-background').css('background-image', 'none');
 		$('#logo-img').attr('src', 'img/logo-dark.svg');
 		$('h1').css('color', '#ffffff');
+	}
+	else {
+		$('#game-background').css('background-image', 'url(' + background.url + ')');
+		if (background.name.includes('dark')) {
+			$('#logo-img').attr('src', 'img/logo.svg');
+			$('h1').css('color', '#000000');
+		} else {
+			$('#logo-img').attr('src', 'img/logo-dark.svg');
+			$('h1').css('color', '#ffffff');
+		}
 	}
 }
