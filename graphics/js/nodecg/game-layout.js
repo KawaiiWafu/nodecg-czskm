@@ -31,10 +31,11 @@ $(() => {
 		gameSystem.html(runData.system);
 		gameEstimate.html(runData.estimate);
 		commentator.html('');
+		let intermissionActive = Boolean(intermission.length);
 		if (player.length || twitch.length) {
 			let i = 0;
             for (let team of currentTeamsData) {
-				if (intermission.length) {
+				if (intermissionActive) {
 					if (first) {
 						runners += team.players.map((player) => player.name).join(', ');
 						first = false;
@@ -46,6 +47,7 @@ $(() => {
 						if (player.name.startsWith("[C] ")) {
 							commentator.html(player.name.substring(4));
 						} else {
+							console.log(player.name);
 							$('#player' + (i + 1)).html(player.name);
 							$('#twitch' + (i + 1)).html(player.social.twitch);
 						}
@@ -53,7 +55,8 @@ $(() => {
 					}
 				}
             }
-			player.html(runners);
+			if (intermissionActive)
+				player.html(runners);
 		}
         textfill_auto(scaleInfo, scaleGame, scaleCat);
 	}
