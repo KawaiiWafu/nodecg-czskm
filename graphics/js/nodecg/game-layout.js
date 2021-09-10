@@ -47,6 +47,7 @@ $(() => {
 						if (player.name.startsWith("[C] ")) {
 							commentator.html(player.name.substring(4));
 						} else {
+							// TODO: Needs to handle multiple team members for coop runs and coop races
 							$('#player' + (i + 1)).html(player.name);
 							$('#twitch' + (i + 1)).html(player.social.twitch);
 						}
